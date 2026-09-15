@@ -1,0 +1,49 @@
+# ====================================================================
+# Git Ignore - C++ / CMake / Redis-Style KV Store
+# ====================================================================
+
+# Archivos objeto y librerías
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# Binarios y ejecutables
+bin/
+obj/
+*.exe
+*.out
+*.app
+*.bat
+kv_server
+kv_tests
+
+# Directorios de compilación de CMake
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile.cmake
+CTestTestfile.cmake
+Testing/
+
+# Archivos de persistencia y temporales en tiempo de ejecución
+*.aof
+database.aof
+test_data.aof
+*.log
+
+# IDEs y Editores de código
+.vscode/
+.vs/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Directorio de scratch o reportes locales
+scratch/
