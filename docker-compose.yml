@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  redis-cpp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: redis-cpp:latest
+    container_name: redis_cpp_engine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/app/data
+      - ./server.conf:/app/server.conf:ro
+    environment:
+      - TZ=UTC
+    healthcheck:
+      test: ["CMD-SHELL", "timeout 1 bash -c '</dev/tcp/127.0.0.1/8080' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
